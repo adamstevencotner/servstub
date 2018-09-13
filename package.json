@@ -1,12 +1,9 @@
 {
-  "name": "apistub",
+  "name": "servstub",
   "version": "1.0.0",
   "description": "stubs out an api based on a config",
   "main": "src/index.js",
-  "scripts": {
-    "start": "node src/index.js"
-  },
-  "author": "",
+  "author": "Adam Cotner",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
