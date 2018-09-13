@@ -1,6 +1,6 @@
 {
   "name": "servstub",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "stubs out an api based on a config",
   "main": "src/index.js",
   "author": "Adam Cotner",
@@ -8,6 +8,11 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3"
+  },
+  "homepage": "https://github.com/adamstevencotner/servstub",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adamstevencotner/servstub.git"
   },
   "bin": {
     "apistub": "src/index.js"
