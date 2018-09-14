@@ -56,15 +56,18 @@ defines valid route(s). if `route` is a string, it is passed as-is into `espress
 defines valid methods. if `method` is a string, it is passed as-is into `espress` as a route. if `method` is an array of strings, each string is passed as a new method on a route.
 #### "response" (number/function/response_config, _required_)
 defines response. the following situations apply given the type of `response`:
-##### number
-if `response` is a number, the endpoint with return that number as the status code, with an empty reponse body
-##### function
-if `response` is a function, `express` will call that function with the [Request](https://expressjs.com/en/4x/api.html#req) object to get a response body
-##### response_config
-if `response` is an object, it must conform to the `response_config` schema
+
+**number**: if `response` is a number, the endpoint with return that number as the status code, with an empty reponse body
+
+**function**: if `response` is a function, `express` will call that function with the [Request](https://expressjs.com/en/4x/api.html#req) object to get a response body
+
+**response_config**: if `response` is an object, it must conform to the `response_config` schema
 
 ### response_config object
 an `endpoint_config` object has the following properties:
 #### "body" (string/number/object, _required_)
+this is the body of the response
 #### "headers" (object)
+an object that will extend the existing headers. default: `{}`
 #### "status" (number)
+the status code to send back with the response. default: `200`
