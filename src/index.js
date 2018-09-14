@@ -18,5 +18,5 @@ try {
 
 app.use(bodyParser.json())
 app.listen(port, () => {
-	console.log('server started.')
+	console.log(`server started on port ${port}`)
 })

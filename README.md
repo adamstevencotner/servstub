@@ -40,9 +40,9 @@ Hello World!
 ## Usage
 once you have a config file, run
 
-`servstub path/to/configfile.js`
+`servstub path/to/configfile.js --port 4321`
 
-and an api server will spin up on port `8000`
+and an api server will spin up on port `4321`. you can also write `-p 4321` or `--port=4321` for the same result. _specifying a port is optional_
 
 ## Configuration
 basic rules:

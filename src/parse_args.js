@@ -2,8 +2,16 @@ const path = require('path')
 const fs = require('fs')
 
 module.exports = (args) => {
-	const relpath = args[0];
-	const abspath = path.join(process.cwd(), relpath)
+	let port, abspath
+	for (let i = 0; i < args.length; i++) {
+		if (args[i].startsWith('--port=')) {
+			port = args[i].substring(7)
+		} else if (args[i] === '--port' || args[i] === '-p') {
+			port = args[++i]
+		} else {
+			abspath = path.join(process.cwd(), args[i])
+		}
+	}
 
 	if (!fs.existsSync(abspath)) {
 	    throw new Error(`no file found at ${abspath}`)
@@ -19,5 +27,5 @@ module.exports = (args) => {
 		throw new Error(`could not import file at ${abspath}`)
 	}
 
-	return { config, port: 8000 }
+	return { config, port: port || 8000 }
 }

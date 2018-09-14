@@ -2,8 +2,8 @@ module.exports = (app, registry) => {
 	for (let { route, method, response } of registry) {
 		for (let _route of (Array.isArray(route) ? route : [route])) {
 			for (let _method of (Array.isArray(method) ? method : [method])) {
-				createResponder(app, _route, _method, response)
-				console.log(`registered ${_method} for endpoint ${_route}`);
+				createResponder(app, _route, _method.toLowerCase(), response)
+				console.log(`${_method.toUpperCase()} ${_route}`);
 			}
 		}
 	}
