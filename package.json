@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "author": "Adam Cotner",
   "license": "ISC",
+  "preferGlobal": true,
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3"
