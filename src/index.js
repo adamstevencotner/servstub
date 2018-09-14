@@ -3,19 +3,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const register = require('./register.js');
+const parse_args = require('./parse_args.js')
 
-const app = express();
-const port = 8000
+const app = express()
+const [first, second, ...cli_args] = process.argv
+const { config, port } = parse_args(cli_args)
 
-const [,, ...args] = process.argv;
-const path = args[0];
+register(app, config)
 
-const registry = require(path);
-
-app.use(bodyParser.json());
-
-register(app, registry);
-
+app.use(bodyParser.json())
 app.listen(port, () => {
 	console.log('server started.')
 })

@@ -15,6 +15,6 @@
     "url": "https://github.com/adamstevencotner/servstub.git"
   },
   "bin": {
-    "apistub": "src/index.js"
+    "servstub": "src/index.js"
   }
 }
