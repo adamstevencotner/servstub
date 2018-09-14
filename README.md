@@ -51,17 +51,17 @@ basic rules:
 ### endpoint_config object
 an `endpoint_config` object has the following properties:
 #### "route" (string/array, _required_)
-defines valid route(s). if `route` is a string, it is passed as-is into `espress` as a route. if `route` is an array of strings, each string is passed a new route.
+defines valid route(s). if `route` is a string, it is passed as-is into `express` as a route. if `route` is an array of strings, each string is passed a new route.
 #### "method" (string/array, _required_)
-defines valid methods. if `method` is a string, it is passed as-is into `espress` as a route. if `method` is an array of strings, each string is passed as a new method on a route.
+defines valid methods. if `method` is a string, it is passed as-is into `express` as a route. if `method` is an array of strings, each string is passed as a new method on a route.
 #### "response" (number/function/response_config, _required_)
 defines response. the following situations apply given the type of `response`:
 
 **number**: if `response` is a number, the endpoint with return that number as the status code, with an empty reponse body
 
-**function**: if `response` is a function, `express` will call that function with the [Request](https://expressjs.com/en/4x/api.html#req) object to get a response body
-
 **response_config**: if `response` is an object, it must conform to the `response_config` schema
+
+**function (ADVANCED)**: if `response` is a function, `express` will call that function with the [Request](https://expressjs.com/en/4x/api.html#req) and [Response](https://expressjs.com/en/4x/api.html#res) objects, as if you were defining a route manually. see [this documentation](https://expressjs.com/en/4x/api.html#req.route) for examples
 
 ### response_config object
 an `endpoint_config` object has the following properties:

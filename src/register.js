@@ -14,7 +14,7 @@ const createResponder = (app, route, method, response) => {
 		throw new Error(`could not register ${route}: "${method}"" is not a valid method`)
 
 	if (typeof response === 'function')
-		return app[method](route, (req, res) => res.send(response(req)))
+		return app[method](route, (req, res) => response(req, res))
 
 	if (typeof response === 'number' && isFinite(response))
 		return app[method](route, (req, res) => res.status(response) && res.send({}))
