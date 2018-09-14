@@ -6,7 +6,7 @@ const register = require('./register.js');
 const parse_args = require('./parse_args.js')
 
 const app = express()
-const [first, second, ...cli_args] = process.argv
+const [ , , ...cli_args ] = process.argv
 const { config, port } = parse_args(cli_args)
 
 register(app, config)
