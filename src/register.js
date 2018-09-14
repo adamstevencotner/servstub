@@ -1,8 +1,11 @@
 module.exports = (app, registry) => {
 	for (let { route, method, response } of registry) {
-		
-		createResponder(app, route, method, response)
-		console.log(`registered ${method} for endpoint ${route}`);
+		for (let _route of (Array.isArray(route) ? route : [route])) {
+			for (let _method of (Array.isArray(method) ? method : [method])) {
+				createResponder(app, _route, _method, response)
+				console.log(`registered ${_method} for endpoint ${_route}`);
+			}
+		}
 	}
 }
 
