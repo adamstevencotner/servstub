@@ -15,7 +15,7 @@ module.exports = (args) => {
 	    process.exit(1)
 	}
 
-	var config
+	let config
 	try {
 		 config = require(abspath)
 	} catch (e) {

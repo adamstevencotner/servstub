@@ -1,32 +1,33 @@
 module.exports = (app, registry) => {
-	 for (let { route, method, responder } of registry) {
+	for (let { route, method, response } of registry) {
 		switch(method) {
 			case 'GET':
-				app.get(route, createResponse(responder));
-				break;
+				app.get(route, createResponder(response))
+				break
 			case 'POST':
-				app.post(route, createResponse(responder));
-				break;
+				app.post(route, createResponder(response))
+				break
 			case 'PUT':
-				app.put(route, createResponse(responder));
-				break;
+				app.put(route, createResponder(response))
+				break
 			default:
-				console.log(`could not register ${route}`);
+				console.log(`could not register ${route}`)
+				process.exit(1)
 		}
 		
 		console.log(`registered ${method} for endpoint ${route}`);
-	};
+	}
 }
 
-const createResponse = (responder) => {
-	if (responder && typeof responder === 'function')
-		return (req, res) => res.send(responder(req));
+const createResponder = (response) => {
+	if (response && typeof response === 'function')
+		return (req, res) => res.send(response(req))
 
-	if (responder && typeof responder === 'object')
-		return (req, res) => res.send(responder);
+	if (response && typeof response === 'object')
+		return (req, res) => res.send(response)
 
-	if (responder && typeof responder === 'number' && isFinite(responder))
-		return (req, res) => res.status(responder) && res.send({});
+	if (response && typeof response === 'number' && isFinite(response))
+		return (req, res) => res.status(response) && res.send({})
 
-	return (req, res) => res.send({});
+	return (req, res) => res.send({})
 }
