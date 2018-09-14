@@ -6,9 +6,11 @@ a cli tool for quickly defining stateless apis
 // config.js
 module.exports = [
   {
-    'route': '/echo',
+    'route': '/hello',
     'method': 'get'
-    'response': (req) => req.query['message']
+    'response': {
+      'body': 'Hello World!'
+    }
   },
   // ...
 ];
@@ -20,7 +22,7 @@ module.exports = [
 
 **3) hit it**
 
-`curl -X GET http://localhost:8000/echo?message=Hello%20World!`
+`curl -X GET http://localhost:8000/hello`
 
 responds with
 ```
@@ -48,6 +50,8 @@ basic rules:
 2) the config file must be a `.js` file with a default export
 3) the export must be of type `Array`, where each item represents is an `endpoint_config`
 
+([example](#example))
+
 ### endpoint_config object
 an `endpoint_config` object has the following properties:
 #### "route" (string/array, _required_)
@@ -71,3 +75,41 @@ this is the body of the response
 an object that will extend the existing headers. default: `{}`
 #### "status" (number)
 the status code to send back with the response. default: `200`
+
+
+### example
+```
+module.exports = [
+    // creates a single endpoint
+    // GET /foo
+    // that returns a 200 OK with body { "answer": 42 }
+    {
+        route: '/foo',
+        method: 'get',
+        response: {
+            'body': {
+                'answer': 42
+            },
+            'status': 200
+        }   
+    },
+    // creates six endpoints
+    // GET /bar, POST /bar, DELETE /bar
+    // GET /baz, POST /baz, DELETE /baz
+    // all will return a 403 FORBIDDEN
+    {
+        route: ['/bar', '/baz'],
+        method: ['get', 'post', 'delete'],
+        response: 403
+    },
+    // creates a single endpoint
+    // GET /echo
+    // that returns whatever you put
+    // the "message" query parameter
+    {
+        route: '/echo',
+        method: 'get',
+        response: (req, res) => res.send(req.query.message)
+    }
+];
+```
