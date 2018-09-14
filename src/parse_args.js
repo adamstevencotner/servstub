@@ -6,21 +6,17 @@ module.exports = (args) => {
 	const abspath = path.join(process.cwd(), relpath)
 
 	if (!fs.existsSync(abspath)) {
-	    console.log(`no file found at ${abspath}`)
-	    process.exit(1)
+	    throw new Error(`no file found at ${abspath}`)
 	}
 
 	if (path.extname(abspath) !== '.js') {
-	    console.log(`file must be ".js". got "${path.extname(abspath)}" instead`)
-	    process.exit(1)
+	    throw new Error(`file must be ".js". got "${path.extname(abspath)}" instead`)
 	}
 
-	let config
 	try {
-		 config = require(abspath)
+		 var config = require(abspath)
 	} catch (e) {
-		console.log(`could not import file at ${abspath}`)
-		process.exit(1)
+		throw new Error(`could not import file at ${abspath}`)
 	}
 
 	return { config, port: 8000 }
