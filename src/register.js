@@ -10,14 +10,22 @@ module.exports = (app, registry) => {
 }
 
 const createResponder = (route, response) => {
-	if (response && typeof response === 'function')
+	if (typeof response === 'function')
 		return (req, res) => res.send(response(req))
 
-	if (response && typeof response === 'object')
-		return (req, res) => res.send(response)
-
-	if (response && typeof response === 'number' && isFinite(response))
+	if (typeof response === 'number' && isFinite(response))
 		return (req, res) => res.status(response) && res.send({})
+
+	if (response && typeof response === 'object')
+		return (req, res) => {
+			if (response.headers)
+				res.set(response.headers)
+
+			if (response.status)
+				res.status(response.status)
+
+			res.send(response.body)
+		}
 
 	throw new Error(`could not register ${route}: "response" is not of an appropriate type`)
 }
