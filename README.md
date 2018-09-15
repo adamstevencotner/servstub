@@ -59,11 +59,11 @@ and you will cbe prompted to add endpoints. or, if you have a config file, run
 and an api server will spin up on port `4321`. you can also write `-p 4321` or `--port=4321` for the same result. _specifying a port is optional_
 
 # Configuration
-you can either configure `servstub` with the [command line](#CLI-Configuration) or with a [file](#File-Configuration)
+you can either configure `servstub` with the [command line](#cli-configuration) or with a [file](#file-configuration)
 ## CLI Configuration
 simply running `servestub` will put you in the configuration tool the available commands are:
 #### add
-add a new endpoint config, specifying method, then route, then response. rules [defined here](#endpoint-config-object) apply to the values of those properties.
+add a new endpoint config, specifying method, then route, then response. rules [defined here](#endpoint_config-object) apply to the values of those properties.
 
 ex: `add POST /data 201`
 #### rm
