@@ -1,6 +1,6 @@
 {
   "name": "servstub",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "a cli tool for quickly defining stateless apis",
   "main": "src/index.js",
   "author": "Adam Cotner",
