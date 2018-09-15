@@ -2,16 +2,17 @@
 a cli tool for quickly defining stateless apis
 
 
-EITHER:
-**configure a server with the cli**
+**EITHER**
+
+configure a server with the cli
 ```
 user@machine$ servstub
 servstub> add GET /hello {"body":"HelloWorld!"}
 servstub> start
 ```
-OR
+**OR**
 
-**configure a server with a config file**
+configure a server with a config file
 ```
 // config.js
 module.exports = [
@@ -31,14 +32,10 @@ and
 user@machine$ servstub config.js
 ```
 
-THEN
+**AND PRESTO!**
 
 ```
 user@machine$ curl -X GET http://localhost:8000/hello
-```
-
-responds with
-```
 HelloWorld!
 ```
 
@@ -51,7 +48,11 @@ HelloWorld!
 - [basic knowledge](https://expressjs.com/en/4x/api.html) of `express`
 
 ## Usage
-once you have a config file, run
+just run
+
+`servstub`
+
+and you will cbe prompted to add endpoints. or, if you have a config file, run
 
 `servstub path/to/configfile.js --port 4321`
 
