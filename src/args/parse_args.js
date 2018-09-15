@@ -1,8 +1,13 @@
 const path = require('path')
 const fs = require('fs')
+const buildConfig = require('./build_config.js')
 
 module.exports = (args) => {
 	let port, abspath
+
+	if (args[0] === 'config')
+		return buildConfig()
+
 	for (let i = 0; i < args.length; i++) {
 		if (args[i].startsWith('--port=')) {
 			port = args[i].substring(7)

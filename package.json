@@ -8,7 +8,8 @@
   "preferGlobal": true,
   "dependencies": {
     "body-parser": "^1.18.3",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "prompt-sync": "^4.1.6"
   },
   "homepage": "https://github.com/adamstevencotner/servstub",
   "repository": {
