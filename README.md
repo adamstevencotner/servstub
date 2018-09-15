@@ -39,7 +39,7 @@ user@machine$ curl -X GET http://localhost:8000/hello
 HelloWorld!
 ```
 
-## Installation
+# Installation
 `npm install -g servstub`
 
 **Prerequisites**
@@ -47,7 +47,7 @@ HelloWorld!
 - [basic knowledge](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide) of JavaScript
 - [basic knowledge](https://expressjs.com/en/4x/api.html) of `express`
 
-## Usage
+# Usage
 just run
 
 `servstub`
@@ -58,7 +58,36 @@ and you will cbe prompted to add endpoints. or, if you have a config file, run
 
 and an api server will spin up on port `4321`. you can also write `-p 4321` or `--port=4321` for the same result. _specifying a port is optional_
 
-## Configuration
+# Configuration
+you can either configure `servstub` with the [command line](#CLI-Configuration) or with a [file](#File-Configuration)
+## CLI Configuration
+simply running `servestub` will put you in the configuration tool the available commands are:
+#### add
+add a new endpoint config, specifying method, then route, then response. rules [defined here](#endpoint-config-object) apply to the values of those properties.
+
+ex: `add POST /data 201`
+#### rm
+remove an existing config by method and route.
+
+ex: `rm POST /data`
+#### port
+specify the port on which you wish to run the server.
+
+ex: `port 4321`
+#### info
+print the endpoints you've configured.
+
+ex: `info`
+#### start
+start the server.
+
+ex: `start`
+#### quit
+quit.
+
+ex: `quit`
+
+## File Configuration
 basic rules:
 1) you must create a config file for `servstub` to work
 2) the config file must be a `.js` file with a default export
