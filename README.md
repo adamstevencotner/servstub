@@ -42,6 +42,8 @@ HelloWorld!
 # Installation
 `npm install -g servstub`
 
+will install `servstub` globally, and allow you to use the cli anywhere
+
 **Prerequisites**
 - [installed](https://nodejs.org/en/download/) `npm` and `node`
 - [basic knowledge](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide) of JavaScript
@@ -61,7 +63,7 @@ and an api server will spin up on port `4321`. you can also write `-p 4321` or `
 # Configuration
 you can either configure `servstub` with the [command line](#cli-configuration) or with a [file](#file-configuration)
 ## CLI Configuration
-simply running `servestub` will put you in the configuration tool the available commands are:
+simply running `servstub` will put you in the configuration tool the available commands are:
 #### add
 add a new endpoint config, specifying method, then route, then response. rules [defined here](#endpoint_config-object) apply to the values of those properties.
 
@@ -97,11 +99,11 @@ basic rules:
 
 ### endpoint_config object
 an `endpoint_config` object has the following properties:
-#### "route" (string/array, _required_)
+#### route (string/array, _required_)
 defines valid route(s). if `route` is a string, it is passed as-is into `express` as a route. if `route` is an array of strings, each string is passed a new route.
-#### "method" (string/array, _required_)
+#### method (string/array, _required_)
 defines valid methods. if `method` is a string, it is passed as-is into `express` as a route. if `method` is an array of strings, each string is passed as a new method on a route.
-#### "response" (number/function/response_config, _required_)
+#### response (number/function/response_config, _required_)
 defines response. the following situations apply given the type of `response`:
 
 **number**: if `response` is a number, the endpoint with return that number as the status code, with an empty reponse body
