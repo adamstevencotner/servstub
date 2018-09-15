@@ -1,7 +1,17 @@
 # servstub
 a cli tool for quickly defining stateless apis
 
-**1) create a config**
+
+EITHER:
+**configure a server with the cli**
+```
+user@machine$ servstub
+servstub> add GET /hello {"body":"HelloWorld!"}
+servstub> start
+```
+OR
+
+**configure a server with a config file**
 ```
 // config.js
 module.exports = [
@@ -9,24 +19,27 @@ module.exports = [
     'route': '/hello',
     'method': 'get'
     'response': {
-      'body': 'Hello World!'
+      'body': 'HelloWorld!'
     }
   },
   // ...
 ];
 ```
+and
 
-**2) start the server**
+```
+user@machine$ servstub config.js
+```
 
-`servstub config.js`
+THEN
 
-**3) hit it**
-
-`curl -X GET http://localhost:8000/hello`
+```
+user@machine$ curl -X GET http://localhost:8000/hello
+```
 
 responds with
 ```
-Hello World!
+HelloWorld!
 ```
 
 ## Installation

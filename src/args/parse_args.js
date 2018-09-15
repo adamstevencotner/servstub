@@ -5,7 +5,7 @@ const buildConfig = require('./build_config.js')
 module.exports = (args) => {
 	let port, abspath
 
-	if (args[0] === 'config')
+	if (args.length === 0)
 		return buildConfig()
 
 	for (let i = 0; i < args.length; i++) {
