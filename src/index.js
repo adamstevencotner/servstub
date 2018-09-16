@@ -2,8 +2,8 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
-const register = require('./register.js');
-const parse_args = require('./args/parse_args.js')
+const register = require('./register');
+const parse_args = require('./args/parse_args')
 
 const [ , , ...cli_args ] = process.argv
 const app = express()
