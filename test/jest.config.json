@@ -1,0 +1,14 @@
+{
+  "bail": true,
+  "verbose": true,
+  "silent": true,
+  "rootDir": "../",
+  "testMatch": [
+    "**/test/**/*.test.js"
+  ],
+  "collectCoverage": true,
+  "coverageDirectory": "test/coverage",
+  "collectCoverageFrom": [
+    "src/**/*.js"
+  ]
+}
