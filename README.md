@@ -42,7 +42,7 @@ HelloWorld!
 # Installation
 `npm install -g servstub`
 
-will install `servstub` globally, and allow you to use the cli anywhere
+will install `servstub` globally, and allow you to use the cli anywhere. if you run into issues with permissions or `command not found`-type errors, follow steps 1 - 5 here: https://docs.npmjs.com/getting-started/fixing-npm-permissions
 
 **Prerequisites**
 - [installed](https://nodejs.org/en/download/) `npm` and `node`
