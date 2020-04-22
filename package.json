@@ -25,6 +25,6 @@
     "servstub": "src/index.js"
   },
   "devDependencies": {
-    "jest": "^23.6.0"
+    "jest": "^25.4.0"
   }
 }
